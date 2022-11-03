@@ -47,7 +47,11 @@ const AllProductsRow: FC<Product> = (product) => {
             type="button"
             className="bg-white-800 rounded-full p-1 text-gray-800 hover:text-red-400"
           >
-            <TrashIcon className="h-6 w-6" aria-hidden="true" />
+            <TrashIcon
+              className="h-6 w-6"
+              aria-hidden="true"
+              onClick={() => handleRouting(`${product.id}`, "eliminar")}
+            />
           </button>
         </div>
       </td>
