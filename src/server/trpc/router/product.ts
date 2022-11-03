@@ -14,4 +14,17 @@ export const productRouter = router({
         },
       })
     ),
+  getProductToDelete: publicProcedure
+    .input(z.object({ productId: z.string() }))
+    .query(({ ctx, input }) =>
+      ctx.prisma.product.findUnique({
+        where: {
+          id: input.productId,
+        },
+        select: {
+          id: true,
+          name: true,
+        },
+      })
+    ),
 });
