@@ -25,19 +25,31 @@ const Home: NextPage = () => {
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500"
                     >
-                      ID
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500"
-                    >
                       Código
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500"
                     >
+                      Nombre
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500"
+                    >
                       Descripción
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500"
+                    >
+                      Precio
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500"
+                    >
+                      Inventario
                     </th>
                     <th
                       className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500 hover:text-green-400"
