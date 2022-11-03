@@ -22,23 +22,29 @@ const Home: NextPage = () => {
                   <tr>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500 "
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500"
                     >
                       ID
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500 "
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500"
                     >
                       Código
                     </th>
                     <th
                       scope="col"
-                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500 "
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500"
                     >
                       Descripción
                     </th>
-                    <th colSpan={2} scope="col" />
+                    <th
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500 hover:text-green-400"
+                      colSpan={2}
+                      scope="col"
+                    >
+                      <a href="#">Agregar Producto</a>
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
