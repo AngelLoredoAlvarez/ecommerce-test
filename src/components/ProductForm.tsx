@@ -20,7 +20,15 @@ const ProductForm: FC<ProductFormProps> = (props) => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<RHFProps>();
+  } = useForm<RHFProps>({
+    defaultValues: {
+      code: "",
+      name: "",
+      description: "",
+      stock: "",
+      price: "",
+    },
+  });
   const onSubmit: SubmitHandler<RHFProps> = (data) => console.log(data);
 
   return (
