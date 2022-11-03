@@ -31,7 +31,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
                       className="hidden h-8 w-auto lg:block"
                       src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                       alt="Your Company"
-                      onClick={() => console.log("this")}
+                      onClick={() => handleRouting("/")}
                     />
                   </div>
                 </div>
