@@ -1,8 +1,17 @@
 import type { FC } from "react";
 import { PencilIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 interface ProductFormProps {
   action: string;
+}
+
+interface RHFProps {
+  code?: string;
+  name?: string;
+  description?: string;
+  stock?: string;
+  price?: string;
 }
 
 const ProductForm: FC<ProductFormProps> = (props) => (
