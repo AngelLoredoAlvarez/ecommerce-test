@@ -43,7 +43,7 @@ const Home: NextPage = () => {
                       colSpan={2}
                       scope="col"
                     >
-                      <a href="#">Agregar Producto</a>
+                      <Link href="/agregar-producto">Agregar Producto</Link>
                     </th>
                   </tr>
                 </thead>
