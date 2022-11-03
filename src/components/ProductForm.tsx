@@ -15,6 +15,14 @@ interface RHFProps {
 }
 
 const ProductForm: FC<ProductFormProps> = (props) => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<RHFProps>();
+  const onSubmit: SubmitHandler<RHFProps> = (data) => console.log(data);
+
   return (
     <div className="w-full max-w-md space-y-8">
       <form className="mt-8 space-y-6" action="#" method="POST">
