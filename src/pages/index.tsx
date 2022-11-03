@@ -1,13 +1,12 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 
 import { trpc } from "../utils/trpc";
+import { AllProductsRow } from "../components/AllProductsRow";
 
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
   const products = trpc.product.allProducts.useQuery();
-  console.log(products.data);
 
   return (
     <>
@@ -50,85 +49,9 @@ const Home: NextPage = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  <tr>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800">
-                      1
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
-                      Jone Doe
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
-                      jonne62@gmail.com
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        <button
-                          type="button"
-                          className="bg-white-800 rounded-full p-1 text-gray-800 hover:text-amber-400"
-                        >
-                          <PencilIcon className="h-6 w-6" aria-hidden="true" />
-                        </button>
-                      </div>
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                        <button
-                          type="button"
-                          className="bg-white-800 rounded-full p-1 text-gray-800 hover:text-red-400"
-                        >
-                          <TrashIcon className="h-6 w-6" aria-hidden="true" />
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800">
-                      2
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
-                      Jone Doe
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
-                      jonne62@gmail.com
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                      <a
-                        className="text-green-500 hover:text-green-700"
-                        href="#"
-                      >
-                        Edit
-                      </a>
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                      <a className="text-red-500 hover:text-red-700" href="#">
-                        Delete
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800">
-                      3
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
-                      Jone Doe
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
-                      jonne62@gmail.com
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                      <a
-                        className="text-green-500 hover:text-green-700"
-                        href="#"
-                      >
-                        Edit
-                      </a>
-                    </td>
-                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
-                      <a className="text-red-500 hover:text-red-700" href="#">
-                        Delete
-                      </a>
-                    </td>
-                  </tr>
+                  {products.data?.map((product) => (
+                    <AllProductsRow key={product.id} {...product} />
+                  ))}
                 </tbody>
               </table>
             </div>
