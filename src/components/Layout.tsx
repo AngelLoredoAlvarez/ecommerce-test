@@ -11,6 +11,8 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
 
+  const handleRouting = () => router.push("/carrito");
+
   return (
     <Fragment>
       <Disclosure as="nav" className="bg-gray-800">
@@ -36,6 +38,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
                   <button
                     type="button"
                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    onClick={handleRouting}
                   >
                     <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
