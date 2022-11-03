@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import type { FC, ReactElement } from "react";
 import { Disclosure } from "@headlessui/react";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/router";
 
 interface LayoutProps {
   children?: ReactElement;
