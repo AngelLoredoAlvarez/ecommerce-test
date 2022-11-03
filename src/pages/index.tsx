@@ -8,8 +8,8 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[5rem]">
-        Create <span className="text-purple-300">T3</span> App
+      <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[3rem]">
+        Los Productos{" "}
       </h1>
 
       <div className="flex flex-col">
