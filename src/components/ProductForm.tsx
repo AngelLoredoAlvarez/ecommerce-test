@@ -25,7 +25,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
 
   return (
     <div className="w-full max-w-md space-y-8">
-      <form className="mt-8 space-y-6" action="#" method="POST">
+      <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <input type="hidden" name="remember" defaultValue="true" />
         <div className="-space-y-px rounded-md shadow-sm">
           <div>
