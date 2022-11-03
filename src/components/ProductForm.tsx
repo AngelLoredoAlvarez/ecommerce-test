@@ -42,7 +42,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             </label>
             <input
               id="product-code"
-              name="code"
               type="text"
               required
               className="relative block w-full appearance-none
@@ -52,6 +51,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
                   focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="Código"
               autoFocus
+              {...register("code", { required: true })}
             />
           </div>
           <div>
@@ -60,7 +60,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             </label>
             <input
               id="product-name"
-              name="name"
               type="text"
               required
               className="relative block w-full appearance-none
@@ -69,6 +68,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
                   focus:z-10 focus:border-indigo-500
                   focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="Nombre"
+              {...register("name", { required: true })}
             />
           </div>
           <div>
@@ -77,7 +77,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             </label>
             <input
               id="description"
-              name="description"
               type="text"
               required
               className="relative block w-full appearance-none
@@ -86,6 +85,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
                   focus:z-10 focus:border-indigo-500
                   focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="Descripción"
+              {...register("description", { required: true })}
             />
           </div>
           <div>
@@ -94,7 +94,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             </label>
             <input
               id="product-stock"
-              name="stock"
               type="text"
               required
               className="relative block w-full appearance-none
@@ -103,6 +102,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
                   focus:z-10 focus:border-indigo-500
                   focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="Inventario"
+              {...register("stock", { required: true })}
             />
           </div>
           <div>
@@ -111,7 +111,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             </label>
             <input
               id="product-price"
-              name="price"
               type="text"
               required
               className="relative block w-full appearance-none
@@ -120,6 +119,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
                   focus:z-10 focus:border-indigo-500
                   focus:outline-none focus:ring-indigo-500 sm:text-sm"
               placeholder="Precio"
+              {...register("price", { required: true })}
             />
           </div>
         </div>
