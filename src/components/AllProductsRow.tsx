@@ -1,8 +1,15 @@
 import type { FC } from "react";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import type { Product } from "@prisma/client";
+import { useRouter } from "next/router";
 
 const AllProductsRow: FC<Product> = (product) => {
+  const router = useRouter();
+
+  const handleRouting = (id: string, action: string) => {
+    router.push(`/productos/${action}/{${id}}`);
+  };
+
   return (
     <tr>
       <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
@@ -26,7 +33,11 @@ const AllProductsRow: FC<Product> = (product) => {
             type="button"
             className="bg-white-800 rounded-full p-1 text-gray-800 hover:text-amber-400"
           >
-            <PencilIcon className="h-6 w-6" aria-hidden="true" />
+            <PencilIcon
+              className="h-6 w-6"
+              aria-hidden="true"
+              onClick={() => handleRouting(`${product.id}`, "modificar")}
+            />
           </button>
         </div>
       </td>
