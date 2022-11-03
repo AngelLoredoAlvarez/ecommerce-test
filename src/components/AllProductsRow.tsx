@@ -5,14 +5,20 @@ import type { Product } from "@prisma/client";
 const AllProductsRow: FC<Product> = (product) => {
   return (
     <tr>
-      <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800">
-        {product.id}
-      </td>
       <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
         {product.code}
       </td>
       <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
+        {product.name}
+      </td>
+      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
         {product.description}
+      </td>
+      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
+        {`$ ${product.price}`}
+      </td>
+      <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
+        {product.stock}
       </td>
       <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
