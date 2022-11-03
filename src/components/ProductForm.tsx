@@ -44,7 +44,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             <input
               id="product-code"
               type="text"
-              required
               className="relative block w-full appearance-none
                   rounded-none rounded-t-md border border-gray-300 px-3
                   py-2 text-gray-900 placeholder-gray-500
@@ -54,6 +53,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
               autoFocus
               {...register("code", { required: true })}
             />
+            {errors.code && <span>El Código es Obligatorio</span>}
           </div>
           <div>
             <label htmlFor="product-name" className="sr-only">
@@ -62,7 +62,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             <input
               id="product-name"
               type="text"
-              required
               className="relative block w-full appearance-none
                   rounded-none rounded-t-md border border-gray-300 px-3
                   py-2 text-gray-900 placeholder-gray-500
@@ -71,6 +70,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
               placeholder="Nombre"
               {...register("name", { required: true })}
             />
+            {errors.name && <span>El Nombre es Obligatorio</span>}
           </div>
           <div>
             <label htmlFor="product-description" className="sr-only">
@@ -79,7 +79,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             <input
               id="description"
               type="text"
-              required
               className="relative block w-full appearance-none
                   rounded-none rounded-b-md border border-gray-300 px-3
                   py-2 text-gray-900 placeholder-gray-500
@@ -88,6 +87,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
               placeholder="Descripción"
               {...register("description", { required: true })}
             />
+            {errors.description && <span>La Descripción es Obligatoria</span>}
           </div>
           <div>
             <label htmlFor="product-inventario" className="sr-only">
@@ -96,7 +96,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             <input
               id="product-stock"
               type="text"
-              required
               className="relative block w-full appearance-none
                   rounded-none rounded-t-md border border-gray-300 px-3
                   py-2 text-gray-900 placeholder-gray-500
@@ -105,6 +104,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
               placeholder="Inventario"
               {...register("stock", { required: true })}
             />
+            {errors.stock && <span>El Inventario es Obligatorio</span>}
           </div>
           <div>
             <label htmlFor="product-price" className="sr-only">
@@ -113,7 +113,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
             <input
               id="product-price"
               type="text"
-              required
               className="relative block w-full appearance-none
                   rounded-none rounded-t-md border border-gray-300 px-3
                   py-2 text-gray-900 placeholder-gray-500
@@ -122,6 +121,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
               placeholder="Precio"
               {...register("price", { required: true })}
             />
+            {errors.price && <span>El Precio es Obligatorio</span>}
           </div>
         </div>
         <div>
