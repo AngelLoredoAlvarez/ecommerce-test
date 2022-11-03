@@ -11,7 +11,7 @@ interface LayoutProps {
 const Layout: FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
 
-  const handleRouting = () => router.push("/carrito");
+  const handleRouting = (route: string) => router.push(route);
 
   return (
     <Fragment>
@@ -31,6 +31,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
                       className="hidden h-8 w-auto lg:block"
                       src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                       alt="Your Company"
+                      onClick={() => console.log("this")}
                     />
                   </div>
                 </div>
@@ -38,7 +39,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
                   <button
                     type="button"
                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                    onClick={handleRouting}
+                    onClick={() => handleRouting("/carrito")}
                   >
                     <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
