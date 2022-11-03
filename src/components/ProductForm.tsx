@@ -1,6 +1,7 @@
 import type { FC } from "react";
 import { PencilIcon, PlusIcon } from "@heroicons/react/24/outline";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import type { SubmitHandler } from "react-hook-form";
 
 interface ProductFormProps {
   action: string;
