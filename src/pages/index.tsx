@@ -12,6 +12,114 @@ const Home: NextPage = () => {
         Create <span className="text-purple-300">T3</span> App
       </h1>
 
+      <div className="flex flex-col">
+        <div className="overflow-x-auto">
+          <div className="inline-block w-full p-1.5 align-middle">
+            <div className="overflow-hidden rounded-lg border">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500 "
+                    >
+                      ID
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500 "
+                    >
+                      Código
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500 "
+                    >
+                      Descripción
+                    </th>
+                    <th colSpan={2} scope="col" />
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800">
+                      1
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
+                      Jone Doe
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
+                      jonne62@gmail.com
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                      <a
+                        className="text-green-500 hover:text-green-700"
+                        href="#"
+                      >
+                        Edit
+                      </a>
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                      <a className="text-red-500 hover:text-red-700" href="#">
+                        Delete
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800">
+                      2
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
+                      Jone Doe
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
+                      jonne62@gmail.com
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                      <a
+                        className="text-green-500 hover:text-green-700"
+                        href="#"
+                      >
+                        Edit
+                      </a>
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                      <a className="text-red-500 hover:text-red-700" href="#">
+                        Delete
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-800">
+                      3
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
+                      Jone Doe
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
+                      jonne62@gmail.com
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                      <a
+                        className="text-green-500 hover:text-green-700"
+                        href="#"
+                      >
+                        Edit
+                      </a>
+                    </td>
+                    <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+                      <a className="text-red-500 hover:text-red-700" href="#">
+                        Delete
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="flex w-full items-center justify-center pt-6 text-2xl text-blue-500">
         {hello.data ? <p>{hello.data.greeting}</p> : <p>Loading..</p>}
       </div>
