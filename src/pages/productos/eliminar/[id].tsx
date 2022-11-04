@@ -6,8 +6,15 @@ import { trpc } from "../../../utils/trpc";
 
 const DeleteProductPage: NextPage = () => {
   const router = useRouter();
+
   const productToDelete = trpc.product.getProductToDelete.useQuery({
     productId: `${router.query.id}`,
+  });
+
+  const deletedProduct = trpc.product.deleteProduct.useMutation({
+    onSuccess() {
+      router.push("/");
+    },
   });
 
   return (
