@@ -21,11 +21,11 @@ const ProductForm: FC<ProductFormProps> = (props) => {
     formState: { errors },
   } = useForm<ProductFormProps>({
     defaultValues: {
-      code: "",
-      name: "",
-      description: "",
-      stock: "",
-      price: "",
+      code: props.code ? props.code : "",
+      name: props.name ? props.name : "",
+      description: props.description ? props.description : "",
+      stock: props.stock ? props.stock : "",
+      price: props.price ? props.price : "",
     },
   });
   const onSubmit: SubmitHandler<ProductFormProps> = (data) => console.log(data);
