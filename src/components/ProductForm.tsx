@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { PencilIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
+import { trpc } from "../utils/trpc";
 
 interface ProductFormProps {
   action: string;
@@ -28,7 +29,35 @@ const ProductForm: FC<ProductFormProps> = (props) => {
       price: props.price ? props.price : "",
     },
   });
-  const onSubmit: SubmitHandler<ProductFormProps> = (data) => console.log(data);
+
+  const createdProduct = trpc.product.createProduct.useMutation({
+    onSuccess() {
+      console.log("Created");
+    },
+  });
+
+  const onSubmit: SubmitHandler<ProductFormProps> = (data) => {
+    if (props.action === "add") {
+      createdProduct.mutate({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        code: data.code,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        name: data.name,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        description: data.description,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        stock: data.stock,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        price: data.price,
+      });
+    } else if (props.action === "edit") {
+    }
+  };
 
   return (
     <div className="w-full max-w-md space-y-8">
