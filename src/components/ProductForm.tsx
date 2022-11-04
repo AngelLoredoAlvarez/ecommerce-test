@@ -46,7 +46,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
         code: data.code,
         name: data.name,
         description: data.description,
-        stock: data.stock,
+        stock: Number(data.stock),
         price: data.price,
       });
     } else if (props.action === "edit") {
@@ -55,7 +55,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
         code: data.code,
         name: data.name,
         description: data.description,
-        stock: data.stock,
+        stock: Number(data.stock),
         price: data.price,
       });
     }
