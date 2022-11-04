@@ -33,8 +33,8 @@ export const productRouter = router({
         code: z.string(),
         name: z.string(),
         description: z.string(),
-        stock: z.string(),
-        price: z.string(),
+        stock: z.number(),
+        price: z.number(),
       })
     )
     .mutation(({ ctx, input }) => {
@@ -61,8 +61,8 @@ export const productRouter = router({
         code: z.string(),
         name: z.string(),
         description: z.string(),
-        stock: z.string(),
-        price: z.string(),
+        stock: z.number(),
+        price: z.number(),
       })
     )
     .mutation(({ ctx, input }) => {
