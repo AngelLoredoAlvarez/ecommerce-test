@@ -5,9 +5,6 @@ import type { SubmitHandler } from "react-hook-form";
 
 interface ProductFormProps {
   action: string;
-}
-
-interface RHFProps {
   code?: string;
   name?: string;
   description?: string;
@@ -22,7 +19,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RHFProps>({
+  } = useForm<ProductFormProps>({
     defaultValues: {
       code: "",
       name: "",
@@ -31,7 +28,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
       price: "",
     },
   });
-  const onSubmit: SubmitHandler<RHFProps> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<ProductFormProps> = (data) => console.log(data);
 
   return (
     <div className="w-full max-w-md space-y-8">
