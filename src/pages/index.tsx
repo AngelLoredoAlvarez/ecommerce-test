@@ -64,9 +64,20 @@ const Home: NextPage = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {products.data?.map((product) => (
-                    <AllProductsRow key={product.id} {...product} />
-                  ))}
+                  {Array.isArray(products.data) && products.data.length > 0 ? (
+                    products.data?.map((product) => (
+                      <AllProductsRow key={product.id} {...product} />
+                    ))
+                  ) : (
+                    <tr>
+                      <td
+                        className="text-black-500 text-center text-5xl"
+                        colSpan={6}
+                      >
+                        No se ha registrado ningun Producto
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
