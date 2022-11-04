@@ -40,6 +40,12 @@ const ProductForm: FC<ProductFormProps> = (props) => {
     },
   });
 
+  const updatedProduct = trpc.product.editProduct.useMutation({
+    onSuccess() {
+      router.push("/");
+    },
+  });
+
   const onSubmit: SubmitHandler<ProductFormProps> = (data) => {
     if (props.action === "add") {
       createdProduct.mutate({
@@ -60,6 +66,26 @@ const ProductForm: FC<ProductFormProps> = (props) => {
         price: data.price,
       });
     } else if (props.action === "edit") {
+      updatedProduct.mutate({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        id: router.query.id,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        code: data.code,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        name: data.name,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        description: data.description,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        stock: data.stock,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        price: data.price,
+      });
     }
   };
 
