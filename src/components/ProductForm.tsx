@@ -13,6 +13,8 @@ interface RHFProps {
   description?: string;
   stock?: string;
   price?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 const ProductForm: FC<ProductFormProps> = (props) => {
