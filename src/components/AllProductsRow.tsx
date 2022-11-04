@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
+import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import type { Product } from "@prisma/client";
 import { useRouter } from "next/router";
 
@@ -55,6 +55,16 @@ const AllProductsRow: FC<Product> = (product) => {
               aria-hidden="true"
               onClick={() => handleRouting(`${product.id}`, "eliminar")}
             />
+          </button>
+        </div>
+      </td>
+      <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
+        <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <button
+            type="button"
+            className="bg-white-800 rounded-full p-1 text-gray-800 hover:text-blue-400"
+          >
+            <PlusIcon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
       </td>
