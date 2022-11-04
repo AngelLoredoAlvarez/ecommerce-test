@@ -4,12 +4,16 @@ import { useRouter } from "next/router";
 import { trpc } from "../../../utils/trpc";
 import { ProductForm } from "../../../components/ProductForm";
 
+import { Loading } from "../../../components/Loading";
+
 const EditProductPage: NextPage = () => {
   const router = useRouter();
 
   const productToModify = trpc.product.getProductToEdit.useQuery({
     productId: `${router.query.id}`,
   });
+
+  if (productToModify.isLoading) return <Loading />;
 
   return (
     <>
