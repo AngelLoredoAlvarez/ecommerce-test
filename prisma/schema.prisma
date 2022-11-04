@@ -15,7 +15,7 @@ model Product {
   code        String
   name        String
   description String
-  stock       String
+  stock       Int
   price       Float
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
