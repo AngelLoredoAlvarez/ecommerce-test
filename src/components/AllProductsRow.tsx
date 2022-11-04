@@ -22,7 +22,10 @@ const AllProductsRow: FC<Product> = (product) => {
         {product.description}
       </td>
       <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
-        {`$ ${product.price}`}
+        ${" "}
+        {Number(product.price)
+          .toFixed(2)
+          .replace(/\d(?=(\d{3})+\.)/g, "$&,")}
       </td>
       <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
         {product.stock}
