@@ -10,6 +10,7 @@ export const cartRouter = router({
             code: true,
             name: true,
             description: true,
+            price: true,
           },
         },
       },
