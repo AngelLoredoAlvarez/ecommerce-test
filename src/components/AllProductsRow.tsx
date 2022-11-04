@@ -7,7 +7,7 @@ const AllProductsRow: FC<Product> = (product) => {
   const router = useRouter();
 
   const handleRouting = (id: string, action: string) => {
-    router.push(`/productos/${action}/{${id}}`);
+    router.push(`/productos/${action}/${id}`);
   };
 
   return (
