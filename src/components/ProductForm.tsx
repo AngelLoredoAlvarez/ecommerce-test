@@ -19,7 +19,6 @@ const ProductForm: FC<ProductFormProps> = (props) => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<RHFProps>({
     defaultValues: {
