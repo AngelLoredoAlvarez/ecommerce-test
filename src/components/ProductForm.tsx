@@ -192,7 +192,11 @@ const ProductForm: FC<ProductFormProps> = (props) => {
                 } py-2 px-4
                 text-sm font-medium text-white
                 focus:outline-none focus:ring-2 focus:ring-indigo-500
-                focus:ring-offset-2`}
+                focus:ring-offset-2 ${
+                  createdProduct.isLoading ||
+                  (updatedProduct.isLoading && "disabled:opacity-25")
+                }`}
+            disabled={createdProduct.isLoading || updatedProduct.isLoading}
           >
             <span className="absolute inset-y-0 left-0 flex items-center pl-3">
               {props.action === "add" ? (
