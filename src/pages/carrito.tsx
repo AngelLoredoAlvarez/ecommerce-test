@@ -2,10 +2,10 @@ import type { NextPage } from "next";
 
 import { trpc } from "../utils/trpc";
 import { Loading } from "../components/Loading";
+import { AllProductsInCarRow } from "../components/AllProductsInCartRow";
 
 const ShoppingCartPage: NextPage = () => {
   const cartProducts = trpc.cart.allProductsInCart.useQuery();
-  console.log(cartProducts.data);
 
   if (cartProducts.isLoading) return <Loading />;
 
@@ -60,14 +60,21 @@ const ShoppingCartPage: NextPage = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  <tr>
-                    <td
-                      className="text-black-500 text-center text-5xl"
-                      colSpan={6}
-                    >
-                      No hay Productos en el Carrito{" "}
-                    </td>
-                  </tr>
+                  {Array.isArray(cartProducts.data) &&
+                  cartProducts.data.length > 0 ? (
+                    cartProducts.data?.map((product) => (
+                      <AllProductsInCarRow key={product.id} {...product} />
+                    ))
+                  ) : (
+                    <tr>
+                      <td
+                        className="text-black-500 text-center text-5xl"
+                        colSpan={6}
+                      >
+                        No hay Productos en el Carrito{" "}
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
