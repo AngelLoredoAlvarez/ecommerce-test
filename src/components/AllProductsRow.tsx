@@ -62,7 +62,12 @@ const AllProductsRow: FC<Product> = (product) => {
         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           <button
             type="button"
-            className="bg-white-800 rounded-full p-1 text-gray-800 hover:text-blue-400"
+            className={`bg-white-800 rounded-full p-1 ${
+              product.stock === 0 ? "text-gray-400" : "text-gray-800"
+            } hover:${
+              product.stock === 0 ? "text-gray-800" : "text-blue-400"
+            } ${product.stock === 0 && "cursor-not-allowed"}`}
+            disabled={product.stock === 0 ? true : false}
           >
             <PlusIcon className="h-6 w-6" aria-hidden="true" />
           </button>
