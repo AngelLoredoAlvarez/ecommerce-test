@@ -2,6 +2,8 @@ import type { FC } from "react";
 import { PencilIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from "react-hook-form";
+import { useRouter } from "next/router";
+
 import { trpc } from "../utils/trpc";
 
 interface ProductFormProps {
@@ -30,9 +32,11 @@ const ProductForm: FC<ProductFormProps> = (props) => {
     },
   });
 
+  const router = useRouter();
+
   const createdProduct = trpc.product.createProduct.useMutation({
     onSuccess() {
-      console.log("Created");
+      router.push("/");
     },
   });
 
