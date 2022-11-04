@@ -17,6 +17,14 @@ const DeleteProductPage: NextPage = () => {
     },
   });
 
+  const handleDelete = () => {
+    deletedProduct.mutate({
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      id: router.query.id,
+    });
+  };
+
   return (
     <>
       <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[3rem]">
@@ -37,6 +45,7 @@ const DeleteProductPage: NextPage = () => {
                 text-sm font-medium text-white hover:bg-red-600
                 focus:outline-none focus:ring-2 focus:ring-indigo-500
                 focus:ring-offset-2"
+          onClick={handleDelete}
         >
           <span className="absolute inset-y-0 left-0 flex items-center pl-3">
             <TrashIcon className="h-6 w-6" aria-hidden="true" />
