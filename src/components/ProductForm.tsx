@@ -51,9 +51,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
       });
     } else if (props.action === "edit") {
       updatedProduct.mutate({
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        id: router.query.id,
+        id: String(router.query.id),
         code: data.code,
         name: data.name,
         description: data.description,
