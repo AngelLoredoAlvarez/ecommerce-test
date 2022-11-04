@@ -85,4 +85,23 @@ export const productRouter = router({
         console.log(error);
       }
     }),
+  deleteProduct: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
+    .mutation(({ ctx, input }) => {
+      try {
+        ctx.prisma.product
+          .delete({
+            where: {
+              id: input.id,
+            },
+          })
+          .then((response) => response);
+      } catch (error) {
+        console.log(error);
+      }
+    }),
 });
