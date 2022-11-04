@@ -5,16 +5,10 @@ import type { SubmitHandler } from "react-hook-form";
 import { useRouter } from "next/router";
 
 import { trpc } from "../utils/trpc";
+import type { Product } from "@prisma/client";
 
-interface ProductFormProps {
+interface ProductFormProps extends Product {
   action: string;
-  code?: string;
-  name?: string;
-  description?: string;
-  stock?: string;
-  price?: string;
-  createdAt?: Date;
-  updatedAt?: Date;
 }
 
 const ProductForm: FC<ProductFormProps> = (props) => {
@@ -27,8 +21,8 @@ const ProductForm: FC<ProductFormProps> = (props) => {
       code: props.code ? props.code : "",
       name: props.name ? props.name : "",
       description: props.description ? props.description : "",
-      stock: props.stock ? props.stock : "",
-      price: props.price ? props.price : "",
+      stock: props.stock ? props.stock : undefined,
+      price: props.price ? props.price : undefined,
     },
   });
 
@@ -49,20 +43,10 @@ const ProductForm: FC<ProductFormProps> = (props) => {
   const onSubmit: SubmitHandler<ProductFormProps> = (data) => {
     if (props.action === "add") {
       createdProduct.mutate({
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         code: data.code,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         name: data.name,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         description: data.description,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         stock: data.stock,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         price: data.price,
       });
     } else if (props.action === "edit") {
@@ -70,20 +54,10 @@ const ProductForm: FC<ProductFormProps> = (props) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         id: router.query.id,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         code: data.code,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         name: data.name,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         description: data.description,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         stock: data.stock,
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         price: data.price,
       });
     }
