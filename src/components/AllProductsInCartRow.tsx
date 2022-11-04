@@ -1,4 +1,3 @@
-import { Decimal } from "@prisma/client/runtime";
 import type { FC } from "react";
 
 interface ProductProps {
@@ -28,7 +27,10 @@ const AllProductsInCarRow: FC<AllProuctsInCartRowProps> = (product) => {
         {product.product.description}
       </td>
       <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
-        {+product.product.price * product.quantity}
+        ${" "}
+        {Number(+product.product.price * product.quantity)
+          .toFixed(2)
+          .replace(/\d(?=(\d{3})+\.)/g, "$&,")}
       </td>
       <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-800">
         {product.quantity}
