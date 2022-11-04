@@ -17,7 +17,9 @@ const EditProductPage: NextPage = () => {
 
   return (
     <>
-      <h1>Modificar Producto</h1>
+      <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[3rem]">
+        Modificar Producto
+      </h1>
       <ProductForm action="edit" {...productToModify.data} />
     </>
   );
