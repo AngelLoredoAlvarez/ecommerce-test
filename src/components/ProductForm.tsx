@@ -10,8 +10,8 @@ interface ProductFormProps {
   description?: string;
   stock?: string;
   price?: string;
-  createdAt?: string;
-  updatedAt?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const ProductForm: FC<ProductFormProps> = (props) => {
