@@ -54,4 +54,35 @@ export const productRouter = router({
         console.log(error);
       }
     }),
+  editProduct: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        code: z.string(),
+        name: z.string(),
+        description: z.string(),
+        stock: z.string(),
+        price: z.string(),
+      })
+    )
+    .mutation(({ ctx, input }) => {
+      try {
+        ctx.prisma.product
+          .update({
+            where: {
+              id: input.id,
+            },
+            data: {
+              code: input.code,
+              name: input.name,
+              description: input.description,
+              stock: input.stock,
+              price: input.price,
+            },
+          })
+          .then((response) => response);
+      } catch (error) {
+        console.log(error);
+      }
+    }),
 });
