@@ -27,4 +27,31 @@ export const productRouter = router({
         },
       })
     ),
+  createProduct: publicProcedure
+    .input(
+      z.object({
+        code: z.string(),
+        name: z.string(),
+        description: z.string(),
+        stock: z.string(),
+        price: z.string(),
+      })
+    )
+    .mutation(({ ctx, input }) => {
+      try {
+        ctx.prisma.product
+          .create({
+            data: {
+              code: input.code,
+              name: input.name,
+              description: input.description,
+              stock: input.stock,
+              price: input.price,
+            },
+          })
+          .then((response) => response);
+      } catch (error) {
+        console.log(error);
+      }
+    }),
 });
