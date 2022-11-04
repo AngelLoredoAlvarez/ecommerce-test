@@ -1,6 +1,14 @@
 import type { NextPage } from "next";
 
+import { trpc } from "../utils/trpc";
+import { Loading } from "../components/Loading";
+
 const ShoppingCartPage: NextPage = () => {
+  const cartProducts = trpc.cart.allProductsInCart.useQuery();
+  console.log(cartProducts.data);
+
+  if (cartProducts.isLoading) return <Loading />;
+
   return (
     <>
       <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[3rem]">
