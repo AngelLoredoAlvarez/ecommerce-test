@@ -4,7 +4,7 @@ interface ProductProps {
   code: string;
   name: string;
   description: string;
-  price: string;
+  price: number;
 }
 
 interface AllProuctsInCartRowProps {
