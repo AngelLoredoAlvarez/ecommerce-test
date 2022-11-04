@@ -3,10 +3,13 @@ import Link from "next/link";
 
 import { trpc } from "../utils/trpc";
 import { AllProductsRow } from "../components/AllProductsRow";
+import { Loading } from "../components/Loading";
 
 const Home: NextPage = () => {
   const hello = trpc.example.hello.useQuery({ text: "from tRPC" });
   const products = trpc.product.allProducts.useQuery();
+
+  if (products.isLoading) return <Loading />;
 
   return (
     <>
