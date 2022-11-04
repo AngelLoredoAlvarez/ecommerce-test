@@ -56,7 +56,7 @@ const Home: NextPage = () => {
                     </th>
                     <th
                       className="px-6 py-3 text-left text-xs font-bold uppercase text-gray-500 hover:text-green-400"
-                      colSpan={2}
+                      colSpan={3}
                       scope="col"
                     >
                       <Link href="/agregar-producto">Agregar Producto</Link>
