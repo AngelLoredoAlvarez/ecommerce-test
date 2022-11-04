@@ -4,7 +4,9 @@ import { ProductForm } from "../components/ProductForm";
 const AddProductPage: NextPage = () => {
   return (
     <>
-      <div>Agregar Producto Page</div>
+      <div className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[3rem]">
+        Agregar Producto
+      </div>
       <ProductForm action="add" />
     </>
   );
