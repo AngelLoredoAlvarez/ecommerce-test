@@ -40,12 +40,15 @@ const DeleteProductPage: NextPage = () => {
 
         <button
           type="submit"
-          className="group relative flex w-full justify-center
+          className={`group relative flex w-full justify-center
                 rounded-md border border-transparent bg-red-500 py-2 px-4
                 text-sm font-medium text-white hover:bg-red-600
                 focus:outline-none focus:ring-2 focus:ring-indigo-500
-                focus:ring-offset-2"
+                focus:ring-offset-2 ${
+                  deletedProduct.isLoading && "disabled:opacity-25"
+                }`}
           onClick={handleDelete}
+          disabled={deletedProduct.isLoading}
         >
           <span className="absolute inset-y-0 left-0 flex items-center pl-3">
             <TrashIcon className="h-6 w-6" aria-hidden="true" />
