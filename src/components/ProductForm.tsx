@@ -47,7 +47,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
         name: data.name,
         description: data.description,
         stock: Number(data.stock),
-        price: data.price,
+        price: Number(data.price),
       });
     } else if (props.action === "edit") {
       updatedProduct.mutate({
@@ -56,7 +56,7 @@ const ProductForm: FC<ProductFormProps> = (props) => {
         name: data.name,
         description: data.description,
         stock: Number(data.stock),
-        price: data.price,
+        price: Number(data.price),
       });
     }
   };
