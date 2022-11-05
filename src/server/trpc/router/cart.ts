@@ -16,4 +16,35 @@ export const cartRouter = router({
       },
     })
   ),
+  addToCart: publicProcedure
+    .input(
+      z.object({
+        product_id: z.string(),
+        currentStock: z.number(),
+      })
+    )
+    .mutation(({ ctx, input }) => {
+      try {
+        ctx.prisma.product
+          .update({
+            where: {
+              id: input.product_id,
+            },
+            data: {
+              stock: input.currentStock - 1,
+              cart: {
+                create: {
+                  quantity: 1,
+                },
+              },
+            },
+            include: {
+              cart: true,
+            },
+          })
+          .then((response) => response);
+      } catch (error) {
+        console.log(error);
+      }
+    }),
 });
