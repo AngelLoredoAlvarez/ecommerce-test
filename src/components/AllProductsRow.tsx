@@ -14,7 +14,7 @@ const AllProductsRow: FC<Product> = (product) => {
 
   const addedProduct = trpc.cart.addToCart.useMutation({
     onSuccess() {
-      console.log("Added");
+      router.push("/carrito");
     },
   });
 
