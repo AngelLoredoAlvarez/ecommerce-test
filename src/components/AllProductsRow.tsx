@@ -3,11 +3,26 @@ import { PencilIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import type { Product } from "@prisma/client";
 import { useRouter } from "next/router";
 
+import { trpc } from "../utils/trpc";
+
 const AllProductsRow: FC<Product> = (product) => {
   const router = useRouter();
 
   const handleRouting = (id: string, action: string) => {
     router.push(`/productos/${action}/${id}`);
+  };
+
+  const addedProduct = trpc.cart.addToCart.useMutation({
+    onSuccess() {
+      console.log("Added");
+    },
+  });
+
+  const handleAdd = () => {
+    addedProduct.mutate({
+      product_id: product.id,
+      currentStock: product.stock,
+    });
   };
 
   return (
@@ -68,6 +83,7 @@ const AllProductsRow: FC<Product> = (product) => {
               product.stock === 0 ? "text-gray-800" : "text-blue-400"
             } ${product.stock === 0 && "cursor-not-allowed"}`}
             disabled={product.stock === 0 ? true : false}
+            onClick={handleAdd}
           >
             <PlusIcon className="h-6 w-6" aria-hidden="true" />
           </button>
